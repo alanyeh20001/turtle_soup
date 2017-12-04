@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204073757) do
+ActiveRecord::Schema.define(version: 20171204075440) do
+
+  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "soup_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["soup_id"], name: "index_favorites_on_soup_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "body"
+    t.bigint "soup_id"
+    t.bigint "user_id"
+    t.boolean "highlight", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["soup_id"], name: "index_messages_on_soup_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "soups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_soups_on_user_id"
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -30,4 +59,9 @@ ActiveRecord::Schema.define(version: 20171204073757) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "soups"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "messages", "soups"
+  add_foreign_key "messages", "users"
+  add_foreign_key "soups", "users"
 end

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204075440) do
+ActiveRecord::Schema.define(version: 20171220142140) do
+
+  create_table "clues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "clue"
+    t.bigint "soup_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["soup_id"], name: "index_clues_on_soup_id"
+  end
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "soup_id"
@@ -38,6 +46,7 @@ ActiveRecord::Schema.define(version: 20171204075440) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "state", default: "active"
     t.index ["user_id"], name: "index_soups_on_user_id"
   end
 
@@ -59,6 +68,7 @@ ActiveRecord::Schema.define(version: 20171204075440) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "clues", "soups"
   add_foreign_key "favorites", "soups"
   add_foreign_key "favorites", "users"
   add_foreign_key "messages", "soups"

@@ -1,0 +1,19 @@
+<nav>
+  <div class="site-name">
+    <a href="/">海龜湯</a>
+  </div>
+
+  <div class="user-info">
+    <ul>
+      <% if current_user %>
+        <li>嘿，<%= current_user.name %>！</li>
+        <li><%= link_to "登出", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "註冊", new_user_registration_path %></li>
+        <li><%= link_to "登入", user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <%= render "layouts/footer" %>
+</nav>

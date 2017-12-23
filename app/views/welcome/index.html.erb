@@ -1,0 +1,19 @@
+<div id="welcome">
+  <div class="menu">
+    <div>
+      <ul>
+        <li><%= link_to "我想要開個新湯 👈", new_soup_path %></li>
+        <li><%= link_to "看看有啥海龜湯 👈", soups_path %></li>
+        <% if @rand_soup %>
+          <li><%= link_to "隨機選湯開始玩 👈", soup_path(@rand_soup) %></li>
+        <% end %>
+        <li><%= link_to "那些已完結的湯 👈", soups_path(state: "finished") %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="description">
+    <p>沒玩過海龜湯？</p>
+    <p>一起來加入吧！</p>
+    <p>或是想開湯也行喔 ☺️</p>
+  </div>
+</div>

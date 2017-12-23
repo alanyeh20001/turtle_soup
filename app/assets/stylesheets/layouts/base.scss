@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+}
+
+#menu {
+  width: 27px;
+  margin: 20px 0 0 20px;
+
+  div {
+    width: inherit;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+    border-radius: 2px;
+  }
+}
+
+.main-content {
+  position: fixed;
+  margin: 0 12px 0 12px;
+  padding:  0 0 50px 0;
+  width: calc(100% - 24px);
+  left: 0;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+}
+
+.main-content-open {
+  left: 170px;
+  visibility: 0.5;
+}
+
+#overlay {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 170px;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.2);
+  transition: visibility 0s, opacity 0.8s ease-out;
+}

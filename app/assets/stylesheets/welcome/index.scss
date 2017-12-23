@@ -1,0 +1,46 @@
+#welcome {
+  display: flex;
+
+  .menu {
+    width: 35%;
+
+    div {
+      background: rgba(242, 242, 242, 0.7);
+      width: 73%;
+      margin: auto;
+      padding: 10px 20px 20px 20px;
+      border-radius: 15px;
+
+      ul {
+        width: 80%;
+        font-size: 20px;
+        list-style-type: none;
+        padding-left: 0;
+        line-height: 60px;
+        text-align-last: justify;
+        margin: auto;
+
+        li {
+          border-bottom: 1px solid #a5a5a5;
+        }
+      }
+    }
+  }
+
+  .description {
+    width: 65%;
+    text-align: center;
+    font-size: 24px;
+  }
+}
+
+@include adapt-to-device() {
+  #welcome {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+
+    .menu, .description {
+      width: 100%;
+    }
+  }
+}

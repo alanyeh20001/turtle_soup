@@ -1,0 +1,58 @@
+@mixin input-style {
+  width: 100%;
+  padding: 7px 10px;
+  margin: 8px 0;
+  border: 1px solid #737373;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+#soups-new {
+  width: 90%;
+  margin: auto;
+
+  p {
+    font-size: 25px;
+    margin: 20px 0;
+  }
+
+  .soup-form-wrapper {
+    position: relative;
+    margin-top: 30px;
+    border: 1px solid #eac6a4;
+    border-radius: 9px;
+
+    span {
+      position: absolute;
+      top: -10px;
+      left: 8px;
+      background: white;
+      padding: 0 6px;
+    }
+
+    form {
+      padding: 30px 10px 15px 10px;
+
+      input[type="text"] {
+        @include input-style;
+      }
+
+      textarea {
+        @include input-style;
+
+        resize: vertical;
+        height: 200px;
+      }
+
+      input[type="submit"] {
+        @include input-style;
+
+        width: 100%;
+        background: #e4e4e4;
+        border: none;
+        color: #a25812;
+      }
+    }
+  }
+}

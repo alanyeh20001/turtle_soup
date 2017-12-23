@@ -1,0 +1,56 @@
+#soups-index {
+  padding: 2px;
+
+  h1 {
+    padding-left: 5px;
+    font-size: 24px;
+  }
+
+  .soup-block {
+    text-align: justify;
+    padding: 15px 15px 33px 15px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    background: rgba(67, 144, 69, 0.09);
+    box-shadow: 2px 2px #bfbfbf;
+
+    .title {
+      display: block;
+      font-size: 20px;
+      border-bottom: 1px solid #bfbfbf;
+      text-decoration: none;
+      color: #383838;
+    }
+
+    .description {
+      margin: 10px 0 5px 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      line-height: 20px;
+      max-height: 80px;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      transition: 1s;
+      font-size: 15px;
+      border-bottom: 1px solid #bfbfbf;
+    }
+
+    .enter-soup {
+      float: right;
+      padding: 5px 10px 0 10px;
+      text-decoration: none;
+      color: #365899;
+    }
+
+    .read-more {
+      float: right;
+      color: #365899;
+      padding: 5px 10px 0 10px;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

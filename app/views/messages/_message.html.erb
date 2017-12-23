@@ -1,0 +1,9 @@
+<% if message.user.id == soup.user.id %>
+  <p class="message-bubble soup-owner">
+    開湯者說：<%= message.body %>
+  </p>
+<% else %>
+  <p class="message-bubble soup-participant" data-message-user-id="<%= message.user.id %>">
+    <%= message.user.name %> 說：<%= message.body %>
+  </p>
+<% end %>

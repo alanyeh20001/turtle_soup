@@ -3,4 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :soups
+  has_many :messages
+  has_many :favorites
+
+  def author?(soup)
+    self == soup.user ? true : false
+  end
 end

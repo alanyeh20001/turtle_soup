@@ -1,0 +1,10 @@
+<div class="soup-flash <%= render_soup_state(@soup) %>">
+  <div aria-label="close" class="close-button">&times;</div>
+  <% if @soup.state == "finished" %>
+    <span>此鍋湯已完成，湯主關湯啦！</span>
+  <% elsif @soup.state == "pending" %>
+    <span>湯主目前不在，此鍋湯將暫停留言！</span>
+  <% else %>
+    <span></span>
+  <% end %>
+</div>

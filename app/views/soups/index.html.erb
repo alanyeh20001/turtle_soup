@@ -1,0 +1,17 @@
+<div id="soups-index">
+  <h1>
+    <%= finished_soups?(params[:state]) ? "今天要回味哪碗湯？" : "今天要選哪碗湯？" %>
+  </h1>
+
+  <% @soups.each do |soup| %>
+    <div class="soup-block">
+      <%= link_to soup_path(soup), class: "title" do %>
+        <%= soup.title %>
+      <% end %>
+      <div class="description"><%= soup.description %></div>
+      <%= link_to soup_path(soup), class: "enter-soup" do %>
+        <%= finished_soups?(params[:state]) ? "看看煮完的湯" : "加入煮湯" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

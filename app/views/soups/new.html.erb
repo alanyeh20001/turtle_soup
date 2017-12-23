@@ -1,0 +1,17 @@
+<div id="soups-new">
+  <p>想要開鍋湯嗎？</p>
+  <p>現在就來！！！</p>
+
+  <div class="soup-form-wrapper">
+    <span>開始備料囉</span>
+
+    <%= form_for @soup do |f| %>
+      <%= f.label :湯名 %><br>
+      <%= f.text_field :title, required: true %><br>
+      <%= f.label :前情提要 %><br>
+      <%= f.text_area :description, required: true %><br>
+
+      <%= f.submit "送出" %>
+    <% end %>
+  </div>
+</div>

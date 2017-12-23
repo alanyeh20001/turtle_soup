@@ -1,0 +1,48 @@
+<div id="soups-show">
+  <div class="title">
+    <h1><%= @soup.title %></h1>
+  </div>
+  <div class="info-link">
+    <% if current_user&.author?(@soup) && @soup.state != "finished" %>
+      <a href="#" id="change-state-link" class="info">完結該湯</a>
+      <a href="#" id="new-clue-link" class="info">新增線索</a>
+    <% end %>
+    <a href="#" id="description-link" class="info">前情提要</a>
+    <a href="#" id="clue-link" class="info">有用線索</a>
+  </div>
+  <%= render "flash", soup: @soup %>
+  <div class="new-clue-panel">
+    <%= form_with model: @clue, format: :json, html: { id: "new_clue" } do |f| %>
+      <%= f.hidden_field :soup_id %>
+      <%= f.text_field :clue %><br>
+
+      <%= f.submit "送出" %>
+    <% end %>
+  </div>
+  <div class="description-panel">
+    <%= @soup.description %>
+  </div>
+  <div class="clue-panel" id="clues">
+    <ul>
+      <% @soup.clues.each do |clue| %>
+        <li><%= clue.clue %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="messages" data-soup-id="<%= @soup.id %>" data-soup-state="<%= @soup.state %>">
+      <%= render partial: "messages/message", collection: @soup.messages,
+                                              as: :message,
+                                              locals: { soup: @soup } %>
+  </div>
+
+  <% if current_user %>
+    <div class="message-form-wrapper">
+      <div class="exit"><%= link_to "退出", soups_path %></div>
+
+      <% if @soup.state == "active" %>
+        <%= render "form", message: @message %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

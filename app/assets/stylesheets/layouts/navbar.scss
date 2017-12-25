@@ -1,41 +1,52 @@
 nav {
-  width: 170px;
+  width: 77%;
   height: 100vh;
-  background: #eac6a4;
+  background: #34344A;
   position: fixed;
   top: 0;
-  left: -170px;
+  left: -77%;
   transition: all 0.3s;
-  font-size: 20px;
+  font-size: 5.5vw;
   text-align: center;
+  overflow: scroll;
 
   .site-name {
     display: block;
-    margin-top: 30px;
+    margin-top: 9vw;
     font-size: 25px;
+    color: #fff;
+
+    img {
+      width: 28vw;
+    }
   }
 
-  .user-info {
-    margin-top: 30px;
+  .user-info, .more {
+    margin: 20px 50px 0 30px;
+    text-align: left;
+    color: #fff;
 
     ul {
       list-style-type: none;
       padding: 0;
+      margin: 0;
 
       li {
-        height: 40px;
-        line-height: 40px;
-        border-bottom: 1px solid #e8b764
+        height: 38px;
+        line-height: 38px;
+        border-bottom: 1px solid #C08497;
+        padding: 10px 0 0;
       }
     }
   }
 
   a {
     text-decoration: none;
-    color: #383838;
+    color: inherit;
   }
 }
 
 .menu-open {
   left: 0;
+  z-index: 15;
 }

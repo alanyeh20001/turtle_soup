@@ -1,6 +1,9 @@
 <nav>
   <div class="site-name">
-    <a href="/">海龜湯</a>
+    <a href="/">
+      <%= image_tag "site-logo" %>
+      <div>海龜湯</div>
+    </a>
   </div>
 
   <div class="user-info">
@@ -8,10 +11,19 @@
       <% if current_user %>
         <li>嘿，<%= current_user.name %>！</li>
         <li><%= link_to "登出", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to_if current_user.soups, "我開的湯", my_soups_path %></li>
       <% else %>
         <li><%= link_to "註冊", new_user_registration_path %></li>
         <li><%= link_to "登入", user_session_path %></li>
       <% end %>
+    </ul>
+  </div>
+  <div class="more">
+    <ul>
+      <li><%= link_to "看看湯規則 ☺️", rules_soups_path %></li>
+      <li><%= link_to "開一鍋新湯 ☺️", new_soup_path %></li>
+      <li><%= link_to "看看有啥湯 ☺️", soups_path %></li>
+      <li><%= link_to "已完結的湯 ☺️", soups_path(state: "finished") %></li>
     </ul>
   </div>
 

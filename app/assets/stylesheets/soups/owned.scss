@@ -1,0 +1,59 @@
+#soups-owned {
+  width: 90%;
+  margin: auto;
+  color: #3c521d;
+
+  .title {
+    text-align: center;
+
+    h1 {
+      font-size: 35px;
+    }
+  }
+
+  .soup-block {
+    text-align: justify;
+    padding: 15px 15px 33px 15px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    background: rgba(176, 208, 211, 0.3);
+    box-shadow: 2px 2px #bfbfbf;
+
+    .title {
+      display: block;
+      font-size: 20px;
+      border-bottom: 1px solid #bfbfbf;
+      text-decoration: none;
+      color: #3c521d;
+    }
+
+    .description {
+      margin: 10px 0 5px 0;
+      padding: 0 0 10px 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      line-height: 27px;
+      max-height: 103px;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      transition: 1s;
+      font-size: 18px;
+      border-bottom: 1px solid #bfbfbf;
+      color: #34344A;
+    }
+
+    .enter-soup {
+      float: right;
+      padding: 5px 10px 0 10px;
+      text-decoration: none;
+      color: #C08497;
+    }
+
+    .read-more {
+      float: right;
+      color: #C08497;
+      padding: 5px 10px 0 10px;
+    }
+  }
+}

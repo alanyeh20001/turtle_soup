@@ -54,6 +54,10 @@ class SoupsController < ApplicationController
   def rules
   end
 
+  def owned
+    @soups = current_user.soups
+  end
+
   private
 
   def soup_params

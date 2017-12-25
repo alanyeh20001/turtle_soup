@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     get :rules, on: :collection
   end
   resources :clues, only: :create
+
+  get 'my_soups', to: 'soups#owned'
 end

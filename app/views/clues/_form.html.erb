@@ -1,0 +1,8 @@
+<div class="new-clue-panel">
+  <%= form_with model: clue, format: :json, html: { id: "new_clue" } do |f| %>
+    <%= f.hidden_field :soup_id %>
+    <%= f.text_field :clue %><br>
+
+    <%= f.submit "送出" %>
+  <% end %>
+</div>

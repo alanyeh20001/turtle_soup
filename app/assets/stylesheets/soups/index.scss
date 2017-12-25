@@ -1,9 +1,14 @@
 #soups-index {
-  padding: 2px;
+  width: 90%;
+  margin: auto;
+  color: #3c521d;
 
-  h1 {
-    padding-left: 5px;
-    font-size: 24px;
+  .title {
+    text-align: center;
+
+    h1 {
+      font-size: 35px;
+    }
   }
 
   .soup-block {
@@ -11,7 +16,7 @@
     padding: 15px 15px 33px 15px;
     margin-bottom: 15px;
     border-radius: 7px;
-    background: rgba(67, 144, 69, 0.09);
+    background: rgba(176, 208, 211, 0.3);
     box-shadow: 2px 2px #bfbfbf;
 
     .title {
@@ -19,38 +24,40 @@
       font-size: 20px;
       border-bottom: 1px solid #bfbfbf;
       text-decoration: none;
-      color: #383838;
+      color: #3c521d;
     }
 
     .description {
       margin: 10px 0 5px 0;
+      padding: 0 0 10px 0;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      line-height: 20px;
-      max-height: 80px;
+      line-height: 27px;
+      max-height: 103px;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
       transition: 1s;
-      font-size: 15px;
+      font-size: 18px;
       border-bottom: 1px solid #bfbfbf;
+      color: #34344A;
     }
 
     .enter-soup {
       float: right;
       padding: 5px 10px 0 10px;
       text-decoration: none;
-      color: #365899;
+      color: #C08497;
     }
 
     .read-more {
       float: right;
-      color: #365899;
+      color: #C08497;
       padding: 5px 10px 0 10px;
     }
   }
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  // display: none;
 }

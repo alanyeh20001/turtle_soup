@@ -11,23 +11,28 @@
 #soups-new {
   width: 90%;
   margin: auto;
+  color: #3c521d;
 
-  p {
-    font-size: 25px;
-    margin: 20px 0;
+  .title {
+    text-align: center;
+
+    h1 {
+      font-size: 35px;
+    }
   }
 
   .soup-form-wrapper {
     position: relative;
-    margin-top: 30px;
-    border: 1px solid #eac6a4;
+    margin-top: 13vw;
+    border: 1px solid #F7AF9D;
     border-radius: 9px;
+    font-size: 5vw;
 
     span {
       position: absolute;
       top: -10px;
       left: 8px;
-      background: white;
+      background: #ECECD7;
       padding: 0 6px;
     }
 
@@ -48,10 +53,9 @@
       input[type="submit"] {
         @include input-style;
 
-        width: 100%;
         background: #e4e4e4;
         border: none;
-        color: #a25812;
+        color: #34344A;
       }
     }
   }

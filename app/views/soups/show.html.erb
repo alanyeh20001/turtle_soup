@@ -3,31 +3,28 @@
     <h1><%= @soup.title %></h1>
   </div>
   <div class="info-link">
-    <% if current_user&.author?(@soup) && @soup.state != "finished" %>
-      <a href="#" id="change-state-link" class="info">完結該湯</a>
-      <a href="#" id="new-clue-link" class="info">新增線索</a>
-    <% end %>
-    <a href="#" id="description-link" class="info">前情提要</a>
-    <a href="#" id="clue-link" class="info">有用線索</a>
+    <div>
+      <% if current_user&.author?(@soup) && @soup.state != "finished" %>
+        <a href="#" id="change-state-link" class="info">完結該湯</a>|
+        <a href="#" id="new-clue-link" class="info">新增線索</a>|
+      <% end %>
+      <a href="#" id="description-link" class="info">前情提要</a>|
+      <a href="#" id="clue-link" class="info">有用線索</a>
+    </div>
   </div>
   <%= render "flash", soup: @soup %>
-  <div class="new-clue-panel">
-    <%= form_with model: @clue, format: :json, html: { id: "new_clue" } do |f| %>
-      <%= f.hidden_field :soup_id %>
-      <%= f.text_field :clue %><br>
-
-      <%= f.submit "送出" %>
-    <% end %>
-  </div>
+  <%= render "clues/form", clue: @clue %>
   <div class="description-panel">
     <%= @soup.description %>
   </div>
   <div class="clue-panel" id="clues">
-    <ul>
-      <% @soup.clues.each do |clue| %>
-        <li><%= clue.clue %></li>
-      <% end %>
-    </ul>
+    <div>
+      <ul>
+        <% @soup.clues.each do |clue| %>
+          <li><%= clue.clue %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 
   <div id="messages" data-soup-id="<%= @soup.id %>" data-soup-state="<%= @soup.state %>">

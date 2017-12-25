@@ -1,49 +1,61 @@
 #soups-show {
   height: 100%;
-  background: aliceblue;
   position: relative;
+  color: #3c521d;
 
   .title {
     position: absolute;
     width: 100%;
     top: 0;
     z-index: 10;
+    background: #ECECD7;
+    height: 70px;
 
     h1 {
-      margin: 0;
       text-align: center;
-      background: green;
       font-size: 25px;
       height: 40px;
       line-height: 40px;
+      font-size: 32px;
     }
   }
 
   .info-link {
     position: absolute;
-    display: flex;
     width: 100%;
-    top: 40px;
+    top: 70px;
     z-index: 10;
-    background: antiquewhite;
-    height: 30px;
-    line-height: 30px;
+    height: 44px;
+    line-height: 44px;
     text-align: center;
+    background: #ECECD7;
+
+    div {
+      display: flex;
+      justify-content: space-around;
+      margin: auto;
+      width: 94%;
+      background: #e5e5ea;
+      border-radius: 6px;
+    }
 
     a {
-      padding: 0 10px;
+      color: #3c521d;
+      text-decoration: none;
     }
   }
 
   .soup-flash {
     display: none;
     position: absolute;
-    top: 70px;
+    top: 114px;
     background: #ffeac1;
-    width: 100%;
+    width: 94%;
+    left: 3%;
     z-index: 10;
     padding: 7px;
     box-sizing: border-box;
+    border-radius: 6px;
 
     span {
       font-size: 16px;
@@ -64,21 +76,57 @@
   .new-clue-panel, .description-panel, .clue-panel {
     display: none;
     position: absolute;
-    width: 100%;
+    width: 96%;
+    left: 2%;
+    border-radius: 5px;
     z-index: 10;
-    top: 69px;
-    height: calc(100% - 67px);
-    overflow: scroll;
+    top: 114px;
+    height: calc(100% - 114px);
     background: #fffdd6;
-    padding: 10px;
+    padding: 25px 20px;
     text-align: justify;
     box-sizing: border-box;
+    font-size: 19px;
+
+    div {
+      overflow: scroll;
+      height: 100%;
+    }
+  }
+
+  @mixin panel-before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    border-top: 6px solid #fffdd6;
+    border-right: 6px solid #fffdd6;
+    width: 10px;
+    height: 10px;
+    transform: rotate(-45deg);
+  }
+
+  .clue-panel:before {
+    @include panel-before;
+
+    right: 10%;
+  }
+
+  .new-clue-panel:before {
+    @include panel-before;
+
+    right: 60%;
+  }
+
+  .description-panel:before {
+    @include panel-before;
+
+    right: 34%;
   }
 
   #messages {
     overflow: scroll;
-    height: calc(90% - 110px);
-    padding-top: 115px;
+    height: calc(100% - 170px);
+    padding-top: 120px;
 
     .message-bubble {
       margin: 0 10px 0.8em;
@@ -92,13 +140,13 @@
 
       &.soup-owner {
         float: left;
-        background-color: #e5e5ea;
+        background-color: #F7AF9D;
+        color: white;
       }
 
       &.soup-participant {
         float: right;
-        background-color: #ff5e3a;
-        color: white;
+        background-color: #f9f9f9;
       }
     }
 
@@ -114,7 +162,7 @@
       @include message-bubble-after;
 
       left: -0.5em;
-      border-right: 0.5em solid #e5e5ea;
+      border-right: 0.5em solid #F7AF9D;
       border-bottom-right-radius: 12px 12px;
     }
 
@@ -122,7 +170,7 @@
       @include message-bubble-after;
 
       right: -0.5em;
-      border-left: 0.5em solid #ff5e3a;
+      border-left: 0.5em solid #f9f9f9;
       border-bottom-left-radius: 12px 12px;
     }
   }

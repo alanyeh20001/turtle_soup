@@ -6,7 +6,7 @@ $(function () {
   var descPanel = $(".description-panel"),
       cluePanel = $(".clue-panel"),
       newCluePanel = $(".new-clue-panel"),
-      infoLink = $(".info-link > .info");
+      infoLink = $(".info-link .info");
 
   infoLink.on("click", function() {
     var linkId = $(this).attr("id");

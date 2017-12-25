@@ -51,6 +51,9 @@ class SoupsController < ApplicationController
     end
   end
 
+  def rules
+  end
+
   private
 
   def soup_params

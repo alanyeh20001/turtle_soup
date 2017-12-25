@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :soups
+  resources :soups do
+    get :rules, on: :collection
+  end
   resources :clues, only: :create
 end

@@ -150,7 +150,7 @@ $peakopacity:0.7;
   }
 
   .list {
-    width: 35%;
+    width: 100%;
 
     div {
       background: rgba(242, 242, 242, 0.7);
@@ -194,18 +194,6 @@ $peakopacity:0.7;
     span {
       font-weight: bold;
       color: #93a773;
-    }
-  }
-}
-
-@include adapt-to-device() {
-  #welcome {
-    // flex-wrap: wrap;
-    // display: flex;
-    // flex-direction: column-reverse;
-
-    .list, .description {
-      width: 100%;
     }
   }
 }

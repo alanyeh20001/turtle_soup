@@ -1,19 +1,39 @@
 <div id="welcome">
-  <div class="menu">
-    <div>
-      <ul>
-        <li><%= link_to "我想要開個新湯 👈", new_soup_path %></li>
-        <li><%= link_to "看看有啥海龜湯 👈", soups_path %></li>
-        <% if @rand_soup %>
-          <li><%= link_to "隨機選湯開始玩 👈", soup_path(@rand_soup) %></li>
-        <% end %>
-        <li><%= link_to "那些已完結的湯 👈", soups_path(state: "finished") %></li>
-      </ul>
+  <section class="background">
+    <div class="content-wrapper">
+      <div class="header">
+        <h1>
+          <div class="site-logo">
+            <span>海龜湯</span>
+          </div>
+        </h1>
+      </div>
+      <div class="slogan">
+        <p>沒玩過 <span>海。龜。湯</span>？</p>
+        <p>註冊後即可加入 ☺️</p>
+      </div>
+      <div class="random">
+        <%= link_to_if @rand_soup, "隨機選湯開始玩 👈", soup_path(@rand_soup) %>
+      </div>
+      <div class="arrows"></div>
     </div>
-  </div>
-  <div class="description">
-    <p>沒玩過海龜湯？</p>
-    <p>一起來加入吧！</p>
-    <p>或是想開湯也行喔 ☺️</p>
-  </div>
+  </section>
+  <section class="background">
+    <div class="content-wrapper">
+      <div class="list">
+        <div class="more">
+          <ul>
+            <li><%= link_to "查看海龜湯規則 👈", rules_soups_path %></li>
+            <li><%= link_to "我想要開個新湯 👈", new_soup_path %></li>
+            <li><%= link_to "看看有啥海龜湯 👈", soups_path %></li>
+            <li><%= link_to "那些已完結的湯 👈", soups_path(state: "finished") %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
+
+<% content_for :page_specific_javascript do %>
+  <%= javascript_include_tag "fsvs" %>
+<% end %>

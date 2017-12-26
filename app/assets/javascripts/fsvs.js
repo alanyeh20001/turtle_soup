@@ -72,18 +72,18 @@ $(function() {
 
   function nextItem() {
     var $previousSlide = $('.background').eq(currentSlideNumber - 1);
-    $previousSlide.css('transform', 'translate3d(0,-130vh,0)').find('.content-wrapper').css('transform', 'translateY(40vh)');
+    $previousSlide.css('transform', 'translate3d(0,-100vh,0)');
     currentSlideTransition();
   }
 
   function previousItem() {
     var $previousSlide = $('.background').eq(currentSlideNumber + 1);
-    $previousSlide.css('transform', 'translate3d(0,30vh,0)').find('.content-wrapper').css('transform', 'translateY(30vh)');
+    $previousSlide.css('transform', 'translate3d(0,0,0)');
     currentSlideTransition();
   }
 
   function currentSlideTransition() {
     var $currentSlide = $('.background').eq(currentSlideNumber);
-    $currentSlide.css('transform', 'translate3d(0,-15vh,0)').find('.content-wrapper').css('transform', 'translateY(15vh)');
+    $currentSlide.css('transform', 'translate3d(0,0,0)');
   }
 });

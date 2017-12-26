@@ -6,8 +6,10 @@ class SoupsChannel < ApplicationCable::Channel
 
     soup = Soup.find_by(id: soup_id)
     if soup.user == current_user
-      soup.update!(state: "active")
-      AppearanceBroadcastJob.perform_later(soup_id, "appear")
+      if soup.state == "pending"
+        soup.update!(state: "active")
+        AppearanceBroadcastJob.perform_later(soup_id, "appear")
+      end
     end
   end
 
@@ -15,8 +17,10 @@ class SoupsChannel < ApplicationCable::Channel
     soup_id = params[:soup_id]
     soup = Soup.find_by(id: soup_id)
     if soup.user == current_user
-      soup.update!(state: "pending")
-      AppearanceBroadcastJob.perform_later(soup_id, "disappear")
+      if soup.state == "active"
+        soup.update!(state: "pending")
+        AppearanceBroadcastJob.perform_later(soup_id, "disappear")
+      end
     end
   end
 

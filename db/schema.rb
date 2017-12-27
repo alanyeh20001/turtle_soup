@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220142140) do
+ActiveRecord::Schema.define(version: 20171227122543) do
 
   create_table "clues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "clue"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20171220142140) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "state", default: "active"
+    t.text "result"
     t.index ["user_id"], name: "index_soups_on_user_id"
   end
 

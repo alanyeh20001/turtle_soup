@@ -26,10 +26,12 @@ $(function() {
             end = contact[0].pageY,
             distance = end - start;
 
-        if (distance <= -10) {
-          delta = -30;
-        } else if (distance > 10) {
-          delta = 30;
+        if (distance <= -30) {
+          delta = -scrollSensitivitySetting;
+        } else if (distance > 30) {
+          delta = scrollSensitivitySetting;
+        } else {
+          delta = 0
         }
         slide(delta);
       })
@@ -72,18 +74,18 @@ $(function() {
 
   function nextItem() {
     var $previousSlide = $('.background').eq(currentSlideNumber - 1);
-    $previousSlide.css('transform', 'translate3d(0,-100vh,0)');
+    $previousSlide.css('top', '-100vh');
     currentSlideTransition();
   }
 
   function previousItem() {
     var $previousSlide = $('.background').eq(currentSlideNumber + 1);
-    $previousSlide.css('transform', 'translate3d(0,0,0)');
+    $previousSlide.css('top', '100vh');
     currentSlideTransition();
   }
 
   function currentSlideTransition() {
     var $currentSlide = $('.background').eq(currentSlideNumber);
-    $currentSlide.css('transform', 'translate3d(0,0,0)');
+    $currentSlide.css('top', '0');
   }
 });

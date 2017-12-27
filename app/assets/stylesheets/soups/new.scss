@@ -51,6 +51,7 @@
       }
 
       input[type="submit"] {
+        @include webkit-button-override;
         @include input-style;
 
         background: #e4e4e4;

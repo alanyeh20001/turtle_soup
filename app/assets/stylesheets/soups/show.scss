@@ -123,6 +123,14 @@
     right: 34%;
   }
 
+  .clue-change:before {
+    right: 18%;
+  }
+
+  .desc-change:before {
+    right: 77%;
+  }
+
   #messages {
     overflow: scroll;
     height: calc(100% - 170px);

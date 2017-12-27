@@ -18,3 +18,4 @@
 //= require reveal
 //= require soup-state-alert
 //= require read-more
+//= require adjust-info-panel

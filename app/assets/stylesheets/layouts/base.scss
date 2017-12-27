@@ -44,5 +44,9 @@ body {
   height: 100%;
   z-index: 100;
   background: rgba(0, 0, 0, 0.7);
-  transition: visibility 0s, opacity 0.8s ease-out;
+}
+
+.overlay-open {
+  visibility: visible !important;
+  opacity: 1 !important;
 }

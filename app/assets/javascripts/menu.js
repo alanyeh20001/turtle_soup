@@ -9,20 +9,17 @@ $(function() {
     if (state === "hidden") {
       navbar.addClass("menu-open");
       mainContent.addClass("main-content-open");
-      overlay[0].style.visibility = "visible";
-      overlay[0].style.opacity = "1";
+      overlay.addClass("overlay-open");
       state = "open";
     }
   });
 
   overlay.on("click", function() {
-    var $this = this;
-
-    if ($this.style.visibility === "visible") {
+    if (state === "open") {
+      var $this = this;
       navbar.removeClass("menu-open");
       mainContent.removeClass("main-content-open");
-      $this.style.visibility = "hidden";
-      $this.style.opacity = "0";
+      $($this).removeClass("overlay-open");
       state = "hidden";
     }
   });

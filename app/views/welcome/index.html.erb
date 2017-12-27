@@ -13,7 +13,11 @@
         <p>註冊後即可加入 ☺️</p>
       </div>
       <div class="random">
-        <%= link_to_if @rand_soup, "隨機選湯開始玩 👈", soup_path(@rand_soup) %>
+        <% if @rand_soup %>
+          <%= link_to "隨機選湯開始玩 👈", soup_path(@rand_soup) %>
+        <% else %>
+          <%= link_to "看看有啥海龜湯 👈", soups_path %>
+        <% end %>
       </div>
       <div class="arrows"></div>
     </div>

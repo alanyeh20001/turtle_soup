@@ -1,10 +1,17 @@
 <div class="soup-flash <%= render_soup_state(@soup) %>">
   <div aria-label="close" class="close-button">&times;</div>
+
+</div>
+<div class="soup-flash <%= render_soup_state(@soup) %>">
+  <div aria-label="close" class="close-button">&times;</div>
+  <% unless current_user %>
+    <div class="text">請先登入後才能煮湯喔！</div>
+  <% end %>
   <% if @soup.state == "finished" %>
-    <span>此鍋湯已完成，湯主關湯啦！</span>
+    <div class="text">此鍋湯已完成，湯主關湯啦！</div>
   <% elsif @soup.state == "pending" %>
-    <span>湯主目前不在，此鍋湯將暫停留言！</span>
+    <div class="text">湯主目前不在，此鍋湯將暫停留言！</div>
   <% else %>
-    <span></span>
+    <div class="text"></div>
   <% end %>
 </div>

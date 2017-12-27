@@ -1,9 +1,6 @@
 class SoupsChannel < ApplicationCable::Channel
   def subscribed
     soup_id = params[:soup_id]
-
-    stream_from "soup_#{soup_id}_channel"
-
     soup = Soup.find_by(id: soup_id)
     if soup.user == current_user
       if soup.state == "pending"
@@ -11,6 +8,8 @@ class SoupsChannel < ApplicationCable::Channel
         AppearanceBroadcastJob.perform_later(soup_id, "appear")
       end
     end
+
+    stream_from "soup_#{soup_id}_channel"
   end
 
   def unsubscribed

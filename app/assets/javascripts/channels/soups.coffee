@@ -2,6 +2,7 @@ $ ->
   messages = $("#messages")
   newCluePanel = $(".new-clue-panel")
   flashPanel = $(".soup-flash")
+  flashText = flashPanel.find(".text")
 
   flashPanel.find(".close-button").on "click", ->
     flashPanel.fadeOut(500)
@@ -96,7 +97,7 @@ $ ->
         $("#new_message").remove()
 
     appendTextAndFadeIn = (text) ->
-      flashPanel.find("span").append(text)
+      flashText.append(text)
       flashPanel.fadeIn(500)
 
     appendSoupForm = (form) ->
@@ -104,4 +105,4 @@ $ ->
         $(".message-form-wrapper").append(form)
 
     clearFlashText = ->
-      flashPanel.find("span")[0].textContent = ""
+      flashText[0].textContent = ""

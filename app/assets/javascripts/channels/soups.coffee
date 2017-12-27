@@ -42,6 +42,12 @@ $ ->
       if message.length > 0
         App.global_soup.send_message message, messages.data('soup-id')
         textarea.val("")
+        e.preventDefault()
+        return false
+      else
+        setTimeout ->
+          $this.find("input[type='submit']").prop("disabled", false)
+        , 500
         return false
 
     $("#new_clue").submit (e) ->

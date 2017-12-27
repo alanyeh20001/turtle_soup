@@ -33,13 +33,12 @@
                                               locals: { soup: @soup } %>
   </div>
 
-  <% if current_user %>
-    <div class="message-form-wrapper">
-      <div class="exit"><%= link_to "退出", soups_path %></div>
-
+  <div class="message-form-wrapper">
+    <div class="exit"><%= link_to "退出", soups_path %></div>
+    <% if current_user %>
       <% if @soup.state == "active" %>
         <%= render "form", message: @message %>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

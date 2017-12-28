@@ -74,7 +74,7 @@
     display: block;
   }
 
-  .new-clue-panel, .description-panel, .clue-panel {
+  .change-state-panel, .new-clue-panel, .description-panel, .clue-panel {
     display: none;
     position: absolute;
     width: 96%;
@@ -92,6 +92,36 @@
     div {
       overflow: scroll;
       height: 100%;
+    }
+  }
+
+  .change-state-panel form {
+    width: 100%;
+    height: 86%;
+    margin-top: 30px;
+    line-height: 30px;
+
+    textarea {
+      box-sizing: border-box;
+      height: 60%;
+      width: inherit;
+      padding: 7px 10px;
+      border: 1px solid #737373;
+      border-radius: 5px;
+      font-size: 19px;
+    }
+
+    input[type="submit"] {
+      @include webkit-button-override;
+
+      width: 100%;
+      margin-top: 15px;
+      height: 35px;
+      font-size: 16px;
+      padding: 7px 10px;
+      border-radius: 5px;
+      background: #e4e4e4;
+      color: #34344A;
     }
   }
 
@@ -122,6 +152,12 @@
     @include panel-before;
 
     right: 34%;
+  }
+
+  .change-state-panel:before {
+    @include panel-before;
+
+    right: 86%;
   }
 
   .clue-change:before {

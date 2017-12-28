@@ -1,0 +1,10 @@
+<div class="change-state-panel">
+  恭喜完成這鍋湯！<br>
+  結束前要麻煩您填寫解答唷：）
+
+  <%= form_for soup, url: "#" do |f| %>
+    <%= f.text_area :result %><br>
+
+    <%= f.submit "送出" %>
+  <% end %>
+</div>

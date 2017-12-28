@@ -13,6 +13,7 @@
     </div>
   </div>
   <%= render "flash", soup: @soup %>
+  <%= render "result_form", soup: @soup %>
   <%= render "clues/form", clue: @clue %>
   <div class="description-panel">
     <div><%= @soup.description %></div>
@@ -37,7 +38,7 @@
     <div class="exit"><%= link_to "退出", soups_path %></div>
     <% if current_user %>
       <% if @soup.state == "active" %>
-        <%= render "form", message: @message %>
+        <%= render "messages/form", message: @message %>
       <% end %>
     <% end %>
   </div>

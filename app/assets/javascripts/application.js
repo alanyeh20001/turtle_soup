@@ -16,6 +16,6 @@
 
 //= require menu
 //= require reveal
-//= require soup-state-alert
+//= require change-soup-state
 //= require read-more
 //= require adjust-info-panel

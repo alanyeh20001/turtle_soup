@@ -61,6 +61,6 @@ class SoupsController < ApplicationController
   private
 
   def soup_params
-    params.require(:soup).permit(:title, :description, :state)
+    params.require(:soup).permit(:title, :description, :state, :result)
   end
 end

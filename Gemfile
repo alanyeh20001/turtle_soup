@@ -32,6 +32,8 @@ gem 'redis', '~> 3.0'
 
 gem 'devise', '~> 4.3.0'
 
+gem 'aasm', '~> 4.12.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

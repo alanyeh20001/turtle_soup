@@ -7,9 +7,9 @@
   <% unless current_user %>
     <div class="text">請先登入後才能煮湯喔！</div>
   <% end %>
-  <% if @soup.state == "finished" %>
+  <% if @soup.finished? %>
     <div class="text">此鍋湯已完成，湯主關湯啦！</div>
-  <% elsif @soup.state == "pending" %>
+  <% elsif @soup.pending? %>
     <div class="text">湯主目前不在，此鍋湯將暫停留言！</div>
   <% else %>
     <div class="text"></div>

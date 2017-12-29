@@ -4,7 +4,7 @@
   </div>
   <div class="info-link">
     <div>
-      <% if current_user&.author?(@soup) && @soup.state != "finished" %>
+      <% if current_user&.author?(@soup) && !@soup.finished? %>
         <a href="#" id="change-state-link" class="info">完結該湯</a>|
         <a href="#" id="new-clue-link" class="info">新增線索</a>|
       <% end %>
@@ -37,7 +37,7 @@
   <div class="message-form-wrapper">
     <div class="exit"><%= link_to "退出", soups_path %></div>
     <% if current_user %>
-      <% if @soup.state == "active" %>
+      <% if @soup.active? %>
         <%= render "messages/form", message: @message %>
       <% end %>
     <% end %>

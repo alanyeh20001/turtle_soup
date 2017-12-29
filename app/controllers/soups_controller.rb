@@ -38,7 +38,7 @@ class SoupsController < ApplicationController
 
   def update
     @soup = current_user.soups.find(params[:id])
-    return if @soup.state == "finished"
+    return if @soup.finished?
 
     respond_to do |format|
       if @soup.update(soup_params)

@@ -4,6 +4,6 @@ module SoupsHelper
   end
 
   def render_soup_state(soup)
-    soup.state == "finished" ? "finished" : soup.state == "pending" ? "pending" : ""
+    soup.finished? ? "finished" : soup.pending? ? "pending" : ""
   end
 end

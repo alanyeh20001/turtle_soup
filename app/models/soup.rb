@@ -9,7 +9,7 @@ class Soup < ApplicationRecord
 
   validates :title, :description, presence: true
 
-  after_update_commit :broadcast_soup, if: :soup_finished?
+  after_update_commit :broadcast_soup, if: Proc.new { |soup| soup.finished? }
 
   aasm column: :state do
     state :active, initial: true
@@ -30,10 +30,6 @@ class Soup < ApplicationRecord
   end
 
   private
-
-  def soup_finished?
-    self.state == "finished"
-  end
 
   def broadcast_soup
     SoupBroadcastJob.perform_later(self)

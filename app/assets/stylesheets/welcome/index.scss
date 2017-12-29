@@ -5,12 +5,13 @@ $peakopacity: 0.7;
 #welcome {
   .background {
     overflow: hidden;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 100%;
     will-change: transform;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    position: fixed;
-    height: 100%;
-    width: 100%;
     -webkit-transition: all 1.4s cubic-bezier(0.22, 0.44, 0, 1);
     transition: all 1.4s cubic-bezier(0.22, 0.44, 0, 1);
 
@@ -42,6 +43,10 @@ $peakopacity: 0.7;
       flex-flow: column nowrap;
       will-change: transform;
     }
+  }
+
+  .background-open {
+    left: 77%;
   }
 
   .site-logo {

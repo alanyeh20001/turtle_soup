@@ -10,6 +10,6 @@ class AppearanceBroadcastJob < ApplicationJob
   private
 
   def render_soup_form
-    SoupsController.render partial: "soups/form", locals: { message: Message.new }
+    SoupsController.render partial: "messages/form", locals: { message: Message.new }
   end
 end

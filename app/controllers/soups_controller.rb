@@ -10,7 +10,7 @@ class SoupsController < ApplicationController
   end
 
   def show
-    @soup = Soup.includes(:messages, :clues).find_by(id: params[:id])
+    @soup = Soup.includes({ messages: :user }, :clues).find_by(id: params[:id])
     @clue = Clue.new
 
     if current_user

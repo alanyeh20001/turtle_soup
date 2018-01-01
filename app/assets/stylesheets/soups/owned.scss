@@ -39,17 +39,28 @@
       color: #34344A;
     }
 
-    .enter-soup {
-      float: right;
+    @mixin action {
       padding: 5px 10px 0 10px;
       text-decoration: none;
       color: #C08497;
     }
 
-    .read-more {
+    .edit-soup {
+      @include action;
+
+      float: left;
+    }
+
+    .enter-soup {
+      @include action;
+
       float: right;
-      color: #C08497;
-      padding: 5px 10px 0 10px;
+    }
+
+    .read-more {
+      @include action;
+
+      float: right;
     }
   }
 

@@ -40,6 +40,10 @@
       <% if @soup.active? %>
         <%= render "messages/form", message: @message %>
       <% end %>
+    <% else %>
+      <div class="login-first">
+        請先 <%= link_to "登入", user_session_path %> 或 <%= link_to "註冊", new_user_registration_path %>
+      </div>
     <% end %>
   </div>
 </div>

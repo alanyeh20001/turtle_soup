@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :messages
   has_many :favorites
 
+  validates :name, presence: true
+
   def author?(soup)
     self == soup.user ? true : false
   end

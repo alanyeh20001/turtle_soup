@@ -1,5 +1,5 @@
 $(function() {
-   var changeStateForm = $(".change-state-panel .edit_soup");
+   var changeStateForm = "#edit_soup_"+ $("#messages").data("soup-id");
 
   $(document).on("submit", changeStateForm, function(e) {
     var $this = $(this);

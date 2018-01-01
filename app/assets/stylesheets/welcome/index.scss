@@ -53,26 +53,26 @@ $peakopacity: 0.7;
     background: image-url("site-logo.svg") no-repeat;
     position: relative;
     margin: auto;
-    width: 50vw;
-    height: 50vw;
+    width: 200px;
+    height: 200px;
 
     span {
       position: absolute;
-      top: 50vw;
-      left: calc(50% - 15vw);
+      top: 100%;
+      left: calc(50% - 63px);
       color: #3c521d;
-      font-size: 10vw;
+      font-size: 42px;
     }
   }
 
   .random {
     background: rgba(242, 242, 242, 0.7);
-    width: 53%;
+    width: 60%;
     margin: 0 auto 0 auto;
     border-radius: 6px;
     padding: 10px 12px;
     text-align: center;
-    font-size: 6vw;
+    font-size: 22px;
 
     a {
       text-decoration: none;
@@ -148,7 +148,7 @@ $peakopacity: 0.7;
 
       ul {
         width: 80%;
-        font-size: 6vw;
+        font-size: 22px;
         list-style-type: none;
         padding-left: 0;
         line-height: 60px;
@@ -169,10 +169,9 @@ $peakopacity: 0.7;
 
   .slogan {
     width: 70%;
-    margin: 12vw auto 0 auto;
-    margin-top: 12vw;
+    margin: 40px auto 0 auto;
     text-align: center;
-    font-size: 7vw;
+    font-size: 26px;
 
     p {
       margin: 10px 0;

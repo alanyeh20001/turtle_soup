@@ -3,15 +3,19 @@
     <h1>我開過的湯</h1>
   </div>
 
-  <% @soups.each do |soup| %>
-    <div class="soup-block">
-      <%= link_to soup_path(soup), class: "title" do %>
-        <%= soup.title %>
-      <% end %>
-      <div class="description"><%= soup.description %></div>
-      <%= link_to soup_path(soup), class: "enter-soup" do %>
-        <%= finished_soups?(params[:state]) ? "看看煮完的湯" : "加入煮湯" %>
-      <% end %>
-    </div>
+  <% if @soups.present? %>
+    <% @soups.each do |soup| %>
+      <div class="soup-block">
+        <%= link_to soup_path(soup), class: "title" do %>
+          <%= soup.title %>
+        <% end %>
+        <div class="description"><%= soup.description %></div>
+        <%= link_to soup_path(soup), class: "enter-soup" do %>
+          <%= finished_soups?(params[:state]) ? "看看煮完的湯" : "加入煮湯" %>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="no-owned">還沒有開過任何湯唷！</div>
   <% end %>
 </div>

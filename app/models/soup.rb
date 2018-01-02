@@ -3,9 +3,9 @@ class Soup < ApplicationRecord
 
   belongs_to :user
 
-  has_many :favorites
-  has_many :messages
-  has_many :clues
+  has_many :favorites, dependent: :destroy
+  has_many :messages,  dependent: :destroy
+  has_many :clues,     dependent: :destroy
 
   validates :title, :description, presence: true
 

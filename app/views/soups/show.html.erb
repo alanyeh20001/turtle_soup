@@ -1,6 +1,6 @@
 <div id="soups-show">
   <div class="title">
-    <h1><%= @soup.title %></h1>
+    <h1><%= sanitize @soup.title %></h1>
   </div>
   <div class="info-link">
     <div>
@@ -9,20 +9,20 @@
         <a href="#" id="new-clue-link" class="info">新增線索</a>|
       <% end %>
       <a href="#" id="description-link" class="info">前情提要</a>|
-      <a href="#" id="clue-link" class="info">有用線索</a>
+      <a href="#" id="clue-link" class="info">有用線索</a
     </div>
   </div>
   <%= render "flash", soup: @soup %>
   <%= render "result_form", soup: @soup %>
   <%= render "clues/form", clue: @clue %>
   <div class="description-panel">
-    <div><%= @soup.description %></div>
+    <div><%= sanitize @soup.description %></div>
   </div>
   <div class="clue-panel" id="clues">
     <div>
       <ul>
         <% @soup.clues.each do |clue| %>
-          <li><%= clue.clue %></li>
+          <li><%= sanitize clue.clue %></li>
         <% end %>
       </ul>
     </div>

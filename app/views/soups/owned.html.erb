@@ -7,9 +7,9 @@
     <% @soups.each do |soup| %>
       <div class="soup-block">
         <%= link_to soup_path(soup), class: "title" do %>
-          <%= soup.title %>
+          <%= sanitize soup.title %>
         <% end %>
-        <div class="description"><%= soup.description %></div>
+        <div class="description"><%= sanitize soup.description %></div>
         <%= link_to "修改湯內容", edit_soup_path(soup), class: "edit-soup" %>
         <%= link_to soup_path(soup), class: "enter-soup" do %>
           <%= finished_soups?(params[:state]) ? "看看煮完的湯" : "加入煮湯" %>

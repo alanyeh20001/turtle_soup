@@ -1,9 +1,9 @@
 <% if message.user.id == soup.user.id %>
   <p class="message-bubble soup-owner">
-    開湯者說：<%= sanitize message.body %>
+    開湯者說：<%= strip_tags message.body %>
   </p>
 <% else %>
   <p class="message-bubble soup-participant" data-message-user-id="<%= message.user.id %>">
-    <%= message.user.name %> 說：<%= sanitize message.body %>
+    <%= message.user.name %> 說：<%= strip_tags message.body %>
   </p>
 <% end %>

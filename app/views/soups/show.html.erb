@@ -1,6 +1,6 @@
 <div id="soups-show">
   <div class="title">
-    <h1><%= sanitize @soup.title %></h1>
+    <h1><%= strip_tags @soup.title %></h1>
   </div>
   <div class="info-link">
     <div>
@@ -16,13 +16,13 @@
   <%= render "result_form", soup: @soup %>
   <%= render "clues/form", clue: @clue %>
   <div class="description-panel">
-    <div><%= sanitize @soup.description %></div>
+    <div><%= strip_tags @soup.description %></div>
   </div>
   <div class="clue-panel" id="clues">
     <div>
       <ul>
         <% @soup.clues.each do |clue| %>
-          <li><%= sanitize clue.clue %></li>
+          <li><%= strip_tags clue.clue %></li>
         <% end %>
       </ul>
     </div>

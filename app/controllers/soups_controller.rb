@@ -3,9 +3,9 @@ class SoupsController < ApplicationController
 
   def index
     if params[:state] && params[:state] == "finished"
-      @soups = Soup.where(state: "finished")
+      @soups = Soup.where(state: "finished").desc_order
     else
-      @soups = Soup.where(state: ["active", "pending"])
+      @soups = Soup.where(state: ["active", "pending"]).desc_order
     end
   end
 
@@ -55,7 +55,7 @@ class SoupsController < ApplicationController
   end
 
   def owned
-    @soups = current_user.soups
+    @soups = current_user.soups.desc_order
   end
 
   private

@@ -11,6 +11,8 @@ class Soup < ApplicationRecord
 
   after_update_commit :broadcast_soup, if: Proc.new { |soup| soup.finished? }
 
+  scope :desc_order, -> { order(created_at: :desc) }
+
   aasm column: :state do
     state :active, initial: true
     state :pending

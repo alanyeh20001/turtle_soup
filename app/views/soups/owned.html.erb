@@ -10,9 +10,11 @@
           <%= strip_tags soup.title %>
         <% end %>
         <div class="description"><%= format_description(soup) %></div>
-        <%= link_to "修改湯內容", edit_soup_path(soup), class: "edit-soup" %>
+        <% unless soup.finished? %>
+          <%= link_to "修改湯內容", edit_soup_path(soup), class: "edit-soup" %>
+        <% end %>
         <%= link_to soup_path(soup), class: "enter-soup" do %>
-          <%= finished_soups?(params[:state]) ? "看看煮完的湯" : "加入煮湯" %>
+          <%= soup.finished? ? "看看煮完的湯" : "加入煮湯" %>
         <% end %>
       </div>
     <% end %>

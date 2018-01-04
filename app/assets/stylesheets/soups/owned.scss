@@ -37,6 +37,10 @@
       font-size: 18px;
       border-bottom: 1px solid #bfbfbf;
       color: #34344A;
+
+      p {
+        margin: 0;
+      }
     }
 
     @mixin action {

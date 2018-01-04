@@ -16,7 +16,7 @@
   <%= render "result_form", soup: @soup %>
   <%= render "clues/form", clue: @clue %>
   <div class="description-panel">
-    <div><%= strip_tags @soup.description %></div>
+    <div><%= format_description(@soup) %></div>
   </div>
   <div class="clue-panel" id="clues">
     <div>

@@ -4,7 +4,9 @@
   </div>
   <div class="info-link">
     <div>
-      <% if current_user&.author?(@soup) && !@soup.finished? %>
+      <% if @soup.finished? %>
+        <a href="#" id="result-link" class="info">查看結果</a>|
+      <% elsif current_user&.author?(@soup) && !@soup.finished? %>
         <a href="#" id="change-state-link" class="info">完結該湯</a>|
         <a href="#" id="new-clue-link" class="info">新增線索</a>|
       <% end %>
@@ -13,8 +15,12 @@
     </div>
   </div>
   <%= render "flash", soup: @soup %>
-  <%= render "result_form", soup: @soup %>
-  <%= render "clues/form", clue: @clue %>
+  <% if @soup.finished? %>
+    <%= render "result_panel", soup: @soup %>
+  <% elsif current_user&.author?(@soup) && !@soup.finished? %>
+    <%= render "result_form", soup: @soup %>
+    <%= render "clues/form", clue: @clue %>
+  <% end %>
   <div class="description-panel">
     <div><%= format_description(@soup) %></div>
   </div>

@@ -73,7 +73,7 @@
     display: block;
   }
 
-  .change-state-panel, .new-clue-panel, .description-panel, .clue-panel {
+  .change-state-panel, .new-clue-panel, .description-panel, .clue-panel, .result-panel {
     display: none;
     position: absolute;
     width: 96%;
@@ -163,12 +163,26 @@
     right: 86%;
   }
 
+  .result-panel:before {
+    @include panel-before;
+
+    right: 86%;
+  }
+
   .clue-change:before {
     right: 18%;
   }
 
   .desc-change:before {
-    right: 77%;
+    right: 80%;
+  }
+
+  .clue-end:before {
+    right: 11%;
+  }
+
+  .desc-end:before {
+    right: 49%;
   }
 
   #messages {

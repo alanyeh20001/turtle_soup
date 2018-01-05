@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227122543) do
+ActiveRecord::Schema.define(version: 20180105053940) do
 
-  create_table "clues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "clue"
+  create_table "clues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
+    t.string "clue", limit: 191
     t.bigint "soup_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20171227122543) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text "body"
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
+    t.string "body", limit: 191
     t.bigint "soup_id"
     t.bigint "user_id"
     t.boolean "highlight", default: false
@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 20171227122543) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "soups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
-    t.text "description"
+  create_table "soups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin" do |t|
+    t.string "title", limit: 191
+    t.text "description", limit: 16777215
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "state", default: "active"
-    t.text "result"
+    t.text "result", limit: 16777215
     t.index ["user_id"], name: "index_soups_on_user_id"
   end
 

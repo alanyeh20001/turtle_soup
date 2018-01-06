@@ -15,3 +15,7 @@
 ## v1.1.0 - 2018/01/05
 
 * Support emoji in soups(title, description), clues(clue), messages(body).
+
+## v1.2.0 - 2018/01/06
+
+* Display concurrent users in specific channel.

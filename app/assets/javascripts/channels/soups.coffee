@@ -8,10 +8,14 @@ $ ->
     flashPanel.fadeOut(500)
 
   if messages.length > 0 && messages.data("soup-state") != "finished"
-    scroll_to_bottom = ->
-      messages.animate({ scrollTop: messages.prop("scrollHeight"), 500 })
+    clientHeight = messages.prop("clientHeight")
 
-    scroll_to_bottom()
+    scroll_to_bottom = ->
+      heightDiff = messages.prop("scrollHeight") - messages.prop("clientHeight")
+      if (heightDiff - messages.scrollTop()) < 100
+        messages.animate({ scrollTop: messages.prop("scrollHeight"), 500 })
+
+    messages.scrollTop(messages.prop("scrollHeight"))
 
     App.global_soup = App.cable.subscriptions.create {
      channel: "SoupsChannel",
@@ -68,7 +72,6 @@ $ ->
 
     appendDataByType = (data) ->
       if data.type == "message"
-        console.log $("#new_message").find("input[type='submit']")
         $("#new_message").find("input[type='submit']").prop("disabled", false)
         messages.append(data.content)
         scroll_to_bottom()

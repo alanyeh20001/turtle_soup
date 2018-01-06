@@ -9,6 +9,8 @@ class SoupsChannel < ApplicationCable::Channel
       end
     end
 
+    ChannelConnectionCounter.new(soup_id: soup_id).set_counts(:subscribe)
+
     stream_from "soup_#{soup_id}_channel"
   end
 
@@ -21,6 +23,8 @@ class SoupsChannel < ApplicationCable::Channel
         AppearanceBroadcastJob.perform_later(soup_id, "disappear")
       end
     end
+
+    ChannelConnectionCounter.new(soup_id: soup_id).set_counts(:unsubscribe)
   end
 
   def send_message(data)

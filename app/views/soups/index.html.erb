@@ -9,9 +9,11 @@
         <%= strip_tags soup.title %>
       <% end %>
       <div class="description"><%= format_description(soup) %></div>
-      <div class="online-counts" data-soup-id="<%= soup.id %>">
-        👥 : <span><%= @connection_counter[soup.id] %></span> 人在線
-      </div>
+      <% unless finished_soups?(params[:state]) %>
+        <div class="online-counts" data-soup-id="<%= soup.id %>">
+          👥 : <span><%= @connection_counter[soup.id] %></span> 人在線
+        </div>
+      <% end %>
       <%= link_to soup_path(soup), class: "enter-soup" do %>
         <%= finished_soups?(params[:state]) ? "看看煮完的湯" : "加入煮湯" %>
       <% end %>

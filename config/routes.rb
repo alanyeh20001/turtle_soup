@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :soups do
     get :rules, on: :collection
+    get :online_counts, on: :collection
   end
   resources :clues, only: :create
 

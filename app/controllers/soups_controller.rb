@@ -6,6 +6,7 @@ class SoupsController < ApplicationController
       @soups = Soup.where(state: "finished").desc_order
     else
       @soups = Soup.where(state: ["active", "pending"]).desc_order
+      @connection_counter = get_connection_counter(@soups.map(&:id))
     end
   end
 
@@ -58,9 +59,24 @@ class SoupsController < ApplicationController
     @soups = current_user.soups.desc_order
   end
 
+  def online_counts
+    soup_ids = params[:soup_ids]
+    @connection_counter = get_connection_counter(soup_ids)
+
+    respond_to do |format|
+      format.json { render json: @connection_counter, status: :ok }
+    end
+  end
+
   private
 
   def soup_params
     params.require(:soup).permit(:title, :description, :state, :result)
+  end
+
+  def get_connection_counter(soup_ids)
+    soup_ids.each_with_object({}) do |id, obj|
+      obj[id] = ChannelConnectionCounter.new(soup_id: id).get_counts
+    end
   end
 end

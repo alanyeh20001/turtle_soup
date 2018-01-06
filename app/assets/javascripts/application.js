@@ -19,3 +19,4 @@
 //= require change-soup-state
 //= require read-more
 //= require adjust-info-panel
+//= require update-online-counts

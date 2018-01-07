@@ -1,14 +1,6 @@
 class SoupsChannel < ApplicationCable::Channel
   def subscribed
     soup_id = params[:soup_id]
-    soup = Soup.find_by(id: soup_id)
-    if soup.user == current_user
-      if soup.may_continue?
-        soup.continue!
-        AppearanceBroadcastJob.perform_later(soup_id, "appear")
-      end
-    end
-
     ChannelConnectionCounter.new(soup_id: soup_id).set_counts(:subscribe)
 
     stream_from "soup_#{soup_id}_channel"
@@ -16,14 +8,6 @@ class SoupsChannel < ApplicationCable::Channel
 
   def unsubscribed
     soup_id = params[:soup_id]
-    soup = Soup.find_by(id: soup_id)
-    if soup.user == current_user
-      if soup.may_pause?
-        soup.pause!
-        AppearanceBroadcastJob.perform_later(soup_id, "disappear")
-      end
-    end
-
     ChannelConnectionCounter.new(soup_id: soup_id).set_counts(:unsubscribe)
   end
 

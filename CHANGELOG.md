@@ -23,3 +23,9 @@
 ## v1.2.1 - 2018/01/06
 
 * Fix broken finished soups page.
+
+## v1.3.0 - 2018/01/07
+
+* Enhance user experience on scrolling of messages.
+* Allow users to leave message even when soup owner isn't online.
+* Add click-to-reply mechanism to facilitate specific reply for soup owner.

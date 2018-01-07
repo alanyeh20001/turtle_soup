@@ -4,6 +4,6 @@
   </p>
 <% else %>
   <p class="message-bubble soup-participant" data-message-user-id="<%= message.user.id %>">
-    <%= message.user.name %> 說：<%= strip_tags message.body %>
+    <%= message.user.name %>：<%= strip_tags message.body %>
   </p>
 <% end %>
